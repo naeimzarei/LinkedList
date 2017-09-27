@@ -3,7 +3,7 @@ import { observable, action } from 'mobx';
 import Node from './Node';
 
 export default class Store extends React.Component {
-	// the root linked list node 
+	// the root linked list node
 	@observable root: any = null;
 	// the number of nodes in linked list
 	@observable count: number = 0;
@@ -11,13 +11,13 @@ export default class Store extends React.Component {
 	@action.bound increment(): void {
 		this.count++;
 	}
-	// set the root linked list node 
+	// set the root linked list node
 	@action.bound setRoot(root: any): void {
 		this.root = root;
 	}
 	/**
-	 * Adds initial node to linked list 
-	 * @param {number} value 
+	 * Adds initial node to linked list
+	 * @param {number} value
 	 */
 	@action.bound addInitial(value: number): void {
 		this.setRoot(<Node value={value} next={null} />);
@@ -32,8 +32,8 @@ export default class Store extends React.Component {
 	//  }
 
 	/**
-	 * Adds node to end of linked list 
-	 * @param value 
+	 * Adds node to end of linked list
+	 * @param value
 	 */
 	addLast(value: number): void {
 		if (this.root === null) {
@@ -47,9 +47,9 @@ export default class Store extends React.Component {
 	}
 
 	/**
-	 * Add node to linked list at given index 
+	 * Add node to linked list at given index
 	 * @param {number} index
-	 * @param {number} value 
+	 * @param {number} value
 	 */
 	addIndex(index: number, value: number): void {
 		if (index !== 0) {
@@ -59,11 +59,11 @@ export default class Store extends React.Component {
 			}
 		}
 		if (this.root === null) {
-			this.addInitial(value); 
+			this.addInitial(value);
 			this.increment();
 			return;
 		}
-		
+
 		let nodeCursor: any = this.root;
 		for (let i = 0; i < this.count; i++) {
 			let currentNode = nodeCursor;
