@@ -7,22 +7,14 @@ import './Node.css';
  * when nesting Node elements. 
  */
 export default class Node extends React.Component<any, {}> {
-	constructor() {
-		super();
-	}
-
 	render() {
-		if (this.props.next !== null) {
-			return (
-				<div>
-					<div className="node">
-						{this.props.value}
-					</div>
-					{this.props.next}
+		return (
+			<div>
+				<div className="node">
+					{this.props.value}
 				</div>
-			);
-		} else {
-			return null;
-		}
+				{this.props.next}
+			</div>
+		);
 	}
 }
